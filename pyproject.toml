@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "openbird"
+version = "0.1.0"
+description = "Claude Code skills for EU air passenger rights claims (EC 261/2004)"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+keywords = [
+  "ec261",
+  "airline",
+  "flight-compensation",
+  "passenger-rights",
+  "claude",
+  "aesa",
+  "eu-regulation"
+]
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Utilities"
+]
+
+[project.scripts]
+openbird = "openbird.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/buildingopen/openbird"
+Repository = "https://github.com/buildingopen/openbird"
+Issues = "https://github.com/buildingopen/openbird/issues"
+
+[tool.setuptools.packages.find]
+include = ["openbird*"]
+
+[tool.setuptools.package-data]
+openbird = ["skills/*.md", "guides/*.md", "templates/*.md", "CLAUDE.md"]

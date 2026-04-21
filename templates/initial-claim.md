@@ -35,7 +35,7 @@ I am writing to claim compensation and reimbursement of expenses under Regulatio
 
 **What happened:**
 
-[Describe in plain chronological order. Example: "On 15 April 2026, I arrived at Berlin Brandenburg Airport (BER) for flight IB2345 scheduled to depart at 06:30 to Barcelona (BCN). At approximately 04:00, I was informed that the flight would not operate as scheduled. I was rerouted onto flight VY7890, departing from Berlin Tegel Airport (TXL) at 22:00 on 14 April 2026 — approximately 8.5 hours before my original departure time, from a different airport."]
+[Describe in plain chronological order. Example: "On [DATE], I arrived at Berlin Brandenburg Airport (BER) for flight IB2345 scheduled to depart at 06:30 to Barcelona (BCN). At approximately 04:00, I was informed that the flight would not operate as scheduled. I was rerouted onto flight VY7890, departing from Berlin Tegel Airport (TXL) at 22:00 on [DATE BEFORE] — approximately 8.5 hours before my original departure time, from a different airport."]
 
 **Why this is a cancellation under Article 5:**
 

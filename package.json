@@ -1,0 +1,39 @@
+{
+  "name": "openbird",
+  "version": "0.1.0",
+  "description": "Claude Code skills and MCP context for EU air passenger rights claims (EC 261/2004)",
+  "keywords": [
+    "ec261",
+    "airline",
+    "flight-compensation",
+    "passenger-rights",
+    "mcp",
+    "claude",
+    "aesa",
+    "eu-regulation"
+  ],
+  "homepage": "https://github.com/buildingopen/openbird",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/buildingopen/openbird.git"
+  },
+  "bugs": {
+    "url": "https://github.com/buildingopen/openbird/issues"
+  },
+  "license": "MIT",
+  "bin": {
+    "openbird": "./bin/openbird.js"
+  },
+  "main": "index.js",
+  "files": [
+    "bin/",
+    "index.js",
+    "skills/",
+    "guides/",
+    "templates/",
+    "CLAUDE.md"
+  ],
+  "engines": {
+    "node": ">=14"
+  }
+}

@@ -134,4 +134,4 @@ AESA's ruling is legally binding. If the airline ignores it:
 - **Not signing the complaint**: AESA requires a signed document. An unsigned submission may be rejected or delayed.
 - **Filing before claiming from the airline**: AESA typically wants to see that you tried to resolve it directly first. Send your claim to the airline, get a response (or wait 30 days), then file with AESA.
 - **Not including the rejection letter**: If the airline rejected you and you're disputing the rejection, AESA needs to see their reasoning.
-- **Vague description of the disruption**: Be specific. "My flight was disrupted" is not enough. "Flight IB1234 scheduled to depart BER at 06:30 on 15 April 2026 was cancelled; I was placed on VY1234 departing from TXL at 22:00" is what AESA needs.
+- **Vague description of the disruption**: Be specific. "My flight was disrupted" is not enough. "Flight IB1234 scheduled to depart BER at 06:30 on [DATE] was cancelled; I was placed on VY1234 departing from TXL at 22:00" is what AESA needs.

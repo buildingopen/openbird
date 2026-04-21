@@ -123,13 +123,11 @@ When calculating total claim, separate:
 ## Key facts from the real case this repo was built from
 
 - Route: BER → BCN → SFO (sold by LEVEL, first leg operated by Vueling)
-- Disruption date: April 15, 2026
-- What happened: BER→BCN leg rerouted, placed on flight departing from different airport 8.5 hours before original
+- Disruption: BER→BCN leg rerouted, placed on flight departing from different airport 8.5 hours before original
 - Airline rejection: "You arrived earlier at SFO, so Art. 6 compensation not owed"
 - Why wrong: Flight was cancelled (Art. 5 applies). Art. 5(1)(c)(iii) exemption requires new departure ≤1h before original. Departure 8.5h earlier fails this test entirely.
 - Correct compensation: €600 under Art. 7(1)(c) (route >3500km)
-- Care costs claimed: Hotel €135.73, meal €16.50, non-refundable hotel at destination €173.38
-- Total claim: €925.61
+- Care costs: hotel + meal + non-refundable accommodation at destination
 - Filed with: AESA ADR02 + ECC-Net Germany
 
 ---

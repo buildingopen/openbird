@@ -1,77 +1,120 @@
-# open-air-help
+# openbird
 
-Claude Code skills and guides for filing EU air passenger rights claims under EC 261/2004.
+<!-- description: Claude Code skills and MCP context for EC 261/2004 flight compensation claims. Analyze airline rejection letters, counter bad legal arguments, and file with AESA or ECC-Net. -->
 
-This repo was built from a real case where an airline rejected a valid claim with a wrong legal argument — and the claimant won by knowing exactly which counter-arguments to use and which authorities to file with.
+[![npm version](https://img.shields.io/npm/v/openbird.svg)](https://www.npmjs.com/package/openbird)
+[![PyPI version](https://img.shields.io/pypi/v/openbird.svg)](https://pypi.org/project/openbird/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+**EU flight cancellation compensation tool for Claude Code.** Gives Claude the legal context to help you claim under EC 261/2004 — analyze airline rejection letters, draft claim letters with proper article citations, and file binding complaints with AESA or ECC-Net Germany.
+
+Built from a real case where an airline rejected a valid €600 claim with an incorrect legal argument — and the passenger won by knowing exactly which counter-arguments to use.
 
 ---
 
-## What this repo does
+## Table of Contents
 
-It gives Claude enough legal context to help you:
+- [What this does](#what-this-does)
+- [Quick start](#quick-start)
+- [Skills](#skills)
+- [What you can claim](#what-you-can-claim)
+- [The case this was built from](#the-case-this-was-built-from)
+- [File structure](#file-structure)
+- [Install as npm or PyPI package](#install-as-npm-or-pypi-package)
+- [Disclaimer](#disclaimer)
+- [Contributing](#contributing)
+
+---
+
+## What this does
+
+Airlines reject valid EC 261/2004 claims more often than they should — usually by misapplying the law. This repo gives Claude Code enough legal precision to:
 
 1. **Analyze a rejection letter** and identify whether the airline's legal argument is correct or wrong
-2. **Draft claim letters** with the right legal citations
-3. **File with enforcement authorities** — AESA (Spain), ECC-Net Germany, or your national body
-4. **Escalate** when the airline ignores you or keeps rejecting
+2. **Draft claim letters** with the right article citations (Art. 5 cancellation vs Art. 6 delay, Art. 7 compensation amounts, Art. 9 care costs)
+3. **File with enforcement authorities** — AESA (Spain, binding ADR), ECC-Net Germany, or your national body
+4. **Counter bad arguments** — the six most common airline rejections and how to defeat each one
 
 ---
 
 ## Quick start
 
 ```bash
-# Clone the repo
-git clone https://github.com/federicodeponte/open-air-help
-cd open-air-help
+# Option 1: npx (no install)
+npx openbird install
+cd your-project && claude
 
-# Start Claude Code
-claude
+# Option 2: Clone directly
+git clone https://github.com/buildingopen/openbird
+cd openbird && claude
 ```
 
-Then use the slash commands:
+Then use the slash commands in Claude Code:
 
 | Command | What it does |
 |---|---|
-| `/analyze-rejection` | Paste in a rejection letter; Claude tells you if the airline is wrong and why |
-| `/file-claim` | Guides you through drafting an initial claim to the airline |
-| `/escalate` | Helps you file with AESA, ECC-Net, or other enforcement bodies |
+| `/analyze-rejection` | Paste in a rejection letter; Claude identifies if the airline is legally wrong and why |
+| `/file-claim` | Guides you through drafting an EC 261/2004 claim with correct article citations |
+| `/escalate` | Helps you file with AESA (binding), ECC-Net Germany, or other enforcement bodies |
 
 ---
 
-## Who this is for
+## Skills
 
-You had a flight disruption in the EU. The airline either:
-- Ignored your claim
-- Rejected it with a legal argument that sounds official but may be wrong
-- Paid partial compensation but not the full amount you're owed
+### `/analyze-rejection` — EC 261 airline rejection analyzer
 
-You want to fight back without hiring a lawyer.
+Paste in an airline rejection letter. Claude will:
+- Classify the disruption (cancellation under Art. 5 vs. delay under Art. 6 — this distinction is usually the entire case)
+- Evaluate each airline argument against the regulation text
+- Give a clear VALID / INVALID / PARTIALLY VALID verdict
+- Recommend next steps with specific article citations
+
+Common airline rejections this skill defeats:
+- "You arrived earlier, so no compensation" (only valid for Art. 6 delays, not Art. 5 cancellations)
+- "Extraordinary circumstances" invoked to deny Art. 9 care costs (never valid for care)
+- "File with the operating carrier" (Art. 13 puts liability on the marketing carrier)
+
+### `/file-claim` — EC 261/2004 claim letter drafter
+
+Guides you through building a formal claim letter that:
+- Cites the correct articles
+- Calculates the right compensation amount (€250/€400/€600 based on route distance)
+- Itemizes Art. 9 care costs separately from Art. 7 statutory compensation
+- Sets a 14-day deadline and names the authority you'll escalate to
+
+### `/escalate` — AESA / ECC-Net complaint assistant
+
+Determines the right enforcement authority and prepares the filing:
+- **AESA** (Spain) for Spanish carriers (LEVEL, Vueling, Iberia, Air Europa) — binding ADR02 procedure
+- **ECC-Net Germany** for Germany-based claimants — free cross-border mediation
+- Parallel filing strategy to maximize pressure on the airline
 
 ---
 
 ## What you can claim
 
-Under **EC Regulation 261/2004**:
+Under **EC Regulation 261/2004** (cancellations and significant delays):
 
-- **€250** for flights under 1500km
-- **€400** for EU flights over 1500km, or other flights 1500–3500km
-- **€600** for flights over 3500km (including most transatlantic routes)
+| Route | Compensation per passenger |
+|---|---|
+| Flights ≤1,500 km | €250 |
+| Intra-EU flights >1,500 km | €400 |
+| Non-EU flights 1,500–3,500 km | €400 |
+| All other flights (intercontinental, >3,500 km) | **€600** |
 
-Plus **care costs** (hotel, meals, transfers) that are owed regardless of distance.
-
-These amounts apply to cancellations and long delays. The airline's job is to pay them — your job is to make sure they don't talk you out of it with bad legal arguments.
+Plus **Art. 9 care costs** (hotel, meals, transport) owed regardless of the cause of disruption — including when the airline claims extraordinary circumstances.
 
 ---
 
 ## The case this was built from
 
-Real case, April 2026:
+Real case:
 
 - **Route**: Berlin BER → Barcelona BCN → San Francisco SFO (marketed by LEVEL, operated by Vueling on first leg)
 - **Disruption**: First leg cancelled/rerouted, placed on a flight from a different airport departing 8.5 hours earlier
 - **Airline's rejection**: "You arrived earlier, so no compensation"
 - **Why that's wrong**: The "earlier arrival" exemption (Art. 5(1)(c)(iii)) only defeats **Art. 6 delay** claims. It does not defeat an **Art. 5 cancellation** claim. A rerouting that departs from a different airport 8.5 hours before the original flight is not a minor change — it is a cancellation and rebooking.
-- **Amount claimed**: €925.61 (hotel + meal + non-refundable accommodation + €600 statutory compensation)
+- **Amount claimed**: €600 statutory compensation + documented care costs (hotel, meal, non-refundable accommodation)
 - **Filed with**: AESA (Spain, binding ADR), ECC-Net Germany
 
 ---
@@ -79,9 +122,18 @@ Real case, April 2026:
 ## File structure
 
 ```
-open-air-help/
-├── README.md               # This file
-├── CLAUDE.md               # Context for Claude Code
+openbird/
+├── README.md                   # This file
+├── CLAUDE.md                   # Legal context for Claude Code
+├── LICENSE                     # MIT
+├── package.json                # npm package
+├── pyproject.toml              # PyPI package
+├── index.js                    # Node.js module
+├── bin/
+│   └── openbird.js             # CLI entry point
+├── openbird/
+│   ├── __init__.py             # Python package
+│   └── cli.py                  # Python CLI
 ├── skills/
 │   ├── analyze-rejection.md    # /analyze-rejection skill
 │   ├── file-claim.md           # /file-claim skill
@@ -93,9 +145,33 @@ open-air-help/
 │   └── counter-arguments.md    # Common airline rejections and how to defeat them
 └── templates/
     ├── initial-claim.md        # First letter to the airline
-    ├── escalation-notice.md    # "You have 14 days before I escalate" letter
+    ├── escalation-notice.md    # Final notice before regulatory escalation
     └── aesa-complaint.md       # AESA ADR02 complaint text
 ```
+
+---
+
+## Install as npm or PyPI package
+
+### npm
+
+```bash
+# Use without installing
+npx openbird install
+
+# Or install globally
+npm install -g openbird
+openbird install
+```
+
+### PyPI
+
+```bash
+pip install openbird
+openbird install
+```
+
+Both `install` commands copy the skills to `.claude/skills/` in your current directory so Claude Code picks them up automatically.
 
 ---
 
