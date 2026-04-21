@@ -1,8 +1,25 @@
+Metadata-Version: 2.4
+Name: openbird
+Version: 0.1.0
+Summary: Claude Code skills for EU air passenger rights claims (EC 261/2004)
+License: MIT
+Project-URL: Homepage, https://github.com/buildingopen/openbird
+Project-URL: Repository, https://github.com/buildingopen/openbird
+Project-URL: Issues, https://github.com/buildingopen/openbird/issues
+Keywords: ec261,airline,flight-compensation,passenger-rights,claude,aesa,eu-regulation
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Utilities
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
 # openbird
 
 <!-- description: Claude Code skills and MCP context for EC 261/2004 flight compensation claims. Analyze airline rejection letters, counter bad legal arguments, and file with AESA or ECC-Net. -->
 
-[![npm version](https://img.shields.io/npm/v/@buildingopen/openbird.svg)](https://www.npmjs.com/package/@buildingopen/openbird)
+[![npm version](https://img.shields.io/npm/v/openbird.svg)](https://www.npmjs.com/package/openbird)
 [![PyPI version](https://img.shields.io/pypi/v/openbird.svg)](https://pypi.org/project/openbird/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
@@ -41,7 +58,7 @@ Airlines reject valid EC 261/2004 claims more often than they should — usually
 
 ```bash
 # Option 1: npx (no install)
-npx @buildingopen/openbird install
+npx openbird install
 cd your-project && claude
 
 # Option 2: Clone directly
@@ -157,10 +174,10 @@ openbird/
 
 ```bash
 # Use without installing
-npx @buildingopen/openbird install
+npx openbird install
 
 # Or install globally
-npm install -g @buildingopen/openbird
+npm install -g openbird
 openbird install
 ```
 

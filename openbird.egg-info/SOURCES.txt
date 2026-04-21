@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+openbird/__init__.py
+openbird/cli.py
+openbird.egg-info/PKG-INFO
+openbird.egg-info/SOURCES.txt
+openbird.egg-info/dependency_links.txt
+openbird.egg-info/entry_points.txt
+openbird.egg-info/top_level.txt

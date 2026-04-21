@@ -1,5 +1,5 @@
 {
-  "name": "openbird",
+  "name": "@buildingopen/openbird",
   "version": "0.1.0",
   "description": "Claude Code skills and MCP context for EU air passenger rights claims (EC 261/2004)",
   "keywords": [

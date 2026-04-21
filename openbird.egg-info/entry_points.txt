@@ -1,0 +1,2 @@
+[console_scripts]
+openbird = openbird.cli:main
