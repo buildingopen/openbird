@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#161b22;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1f6feb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#58a6ff;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="640" fill="url(#bg)"/>
+
+  <!-- Subtle grid lines -->
+  <g stroke="#21262d" stroke-width="1" opacity="0.5">
+    <line x1="0" y1="160" x2="1280" y2="160"/>
+    <line x1="0" y1="320" x2="1280" y2="320"/>
+    <line x1="0" y1="480" x2="1280" y2="480"/>
+    <line x1="320" y1="0" x2="320" y2="640"/>
+    <line x1="640" y1="0" x2="640" y2="640"/>
+    <line x1="960" y1="0" x2="960" y2="640"/>
+  </g>
+
+  <!-- Bird / plane icon — simple geometric bird shape -->
+  <g transform="translate(100, 260)" filter="url(#glow)">
+    <!-- Bird body -->
+    <ellipse cx="60" cy="60" rx="38" ry="16" fill="#1f6feb" opacity="0.9"/>
+    <!-- Left wing -->
+    <path d="M 30 54 Q 0 30 -20 48 Q 10 52 30 54 Z" fill="#58a6ff"/>
+    <!-- Right wing -->
+    <path d="M 90 54 Q 130 28 150 44 Q 118 52 90 54 Z" fill="#58a6ff"/>
+    <!-- Tail -->
+    <path d="M 22 62 Q 0 80 -10 70 Q 15 68 22 62 Z" fill="#388bfd"/>
+    <!-- Head -->
+    <circle cx="95" cy="52" r="10" fill="#1f6feb"/>
+    <!-- Beak -->
+    <path d="M 104 50 L 114 52 L 104 54 Z" fill="#58a6ff"/>
+    <!-- Eye -->
+    <circle cx="97" cy="50" r="2.5" fill="#0d1117"/>
+    <circle cx="98" cy="49.5" r="0.8" fill="#58a6ff"/>
+  </g>
+
+  <!-- Accent line -->
+  <rect x="100" y="370" width="80" height="3" rx="2" fill="url(#accent)"/>
+
+  <!-- Main title -->
+  <text x="210" y="305" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="96" font-weight="800" letter-spacing="-3" fill="white">openbird</text>
+
+  <!-- Accent underline under title -->
+  <rect x="210" y="320" width="540" height="3" rx="2" fill="url(#accent)" opacity="0.6"/>
+
+  <!-- Tagline -->
+  <text x="210" y="376" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="22" font-weight="400" fill="#8b949e" letter-spacing="0.5">Airlines reject 80% of valid claims. openbird doesn't.</text>
+
+  <!-- Divider -->
+  <line x1="210" y1="420" x2="1100" y2="420" stroke="#30363d" stroke-width="1"/>
+
+  <!-- Tags row -->
+  <!-- EC 261/2004 tag -->
+  <rect x="210" y="440" width="170" height="36" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="295" y="464" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="500" fill="#58a6ff" text-anchor="middle">⚖️  EC 261/2004</text>
+
+  <!-- Claude Code tag -->
+  <rect x="394" y="440" width="150" height="36" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="469" y="464" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="500" fill="#58a6ff" text-anchor="middle">🤖  Claude Code</text>
+
+  <!-- EU tag -->
+  <rect x="558" y="440" width="130" height="36" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="623" y="464" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="500" fill="#58a6ff" text-anchor="middle">🇪🇺  EU-wide</text>
+
+  <!-- Compensation tag -->
+  <rect x="702" y="440" width="170" height="36" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="787" y="464" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="500" fill="#3fb950" text-anchor="middle">💰  Up to €600</text>
+
+  <!-- Bottom label -->
+  <text x="640" y="570" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="15" fill="#484f58" text-anchor="middle">github.com/buildingopen/openbird</text>
+  <text x="640" y="595" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#30363d" text-anchor="middle">npx @buildingopen/openbird install</text>
+
+  <!-- Decorative dots top-right -->
+  <circle cx="1160" cy="100" r="3" fill="#1f6feb" opacity="0.4"/>
+  <circle cx="1180" cy="80" r="2" fill="#58a6ff" opacity="0.3"/>
+  <circle cx="1200" cy="110" r="4" fill="#1f6feb" opacity="0.2"/>
+  <circle cx="1140" cy="130" r="2" fill="#388bfd" opacity="0.4"/>
+  <circle cx="1220" cy="70" r="2.5" fill="#58a6ff" opacity="0.25"/>
+</svg>

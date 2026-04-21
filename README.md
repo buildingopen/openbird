@@ -1,121 +1,145 @@
+<!-- meta: openbird — Claude Code skills for EU flight compensation under EC 261/2004. Analyze airline rejections, counter bad legal arguments, claim €250–€600. Works with AESA and ECC-Net. -->
+
+<p align="center">
+  <img src="assets/banner.svg" alt="openbird — EU Air Passenger Rights" width="100%"/>
+</p>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/@buildingopen/openbird"><img src="https://img.shields.io/npm/v/@buildingopen/openbird.svg?style=flat-square&color=1f6feb" alt="npm version"/></a>
+  <a href="https://pypi.org/project/openbird/"><img src="https://img.shields.io/pypi/v/openbird.svg?style=flat-square&color=1f6feb" alt="PyPI version"/></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square" alt="MIT License"/></a>
+  <img src="https://img.shields.io/badge/EC%20261%2F2004-binding%20EU%20law-green.svg?style=flat-square" alt="EC 261/2004"/>
+</p>
+
+<br/>
+
 # openbird
 
-<!-- description: Claude Code skills and MCP context for EC 261/2004 flight compensation claims. Analyze airline rejection letters, counter bad legal arguments, and file with AESA or ECC-Net. -->
+> Airlines reject ~80% of valid EC 261/2004 claims hoping passengers give up. openbird doesn't give up.
 
-[![npm version](https://img.shields.io/npm/v/@buildingopen/openbird.svg)](https://www.npmjs.com/package/@buildingopen/openbird)
-[![PyPI version](https://img.shields.io/pypi/v/openbird.svg)](https://pypi.org/project/openbird/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+Airlines are billion-dollar corporations with legal teams. Every rejection letter is written to sound authoritative enough that you'll stop. Most passengers do. openbird gives you the legal precision to push back — it installs Claude Code skills that know EC 261/2004 article by article, identify the exact error in your rejection letter, and tell you what to file, where, and why you'll win.
 
-**EU flight cancellation compensation tool for Claude Code.** Gives Claude the legal context to help you claim under EC 261/2004 — analyze airline rejection letters, draft claim letters with proper article citations, and file binding complaints with AESA or ECC-Net Germany.
-
-Built from a real case where an airline rejected a valid €600 claim with an incorrect legal argument — and the passenger won by knowing exactly which counter-arguments to use.
+**This is not a form-filling service.** It's legal firepower in your terminal.
 
 ---
 
-## Table of Contents
+## What you're owed ⚖️
 
-- [What this does](#what-this-does)
-- [Quick start](#quick-start)
-- [Skills](#skills)
-- [What you can claim](#what-you-can-claim)
-- [The case this was built from](#the-case-this-was-built-from)
-- [File structure](#file-structure)
-- [Install as npm or PyPI package](#install-as-npm-or-pypi-package)
-- [Disclaimer](#disclaimer)
-- [Contributing](#contributing)
+Under **EC Regulation 261/2004**, when your flight is cancelled or significantly delayed:
 
----
+| Route | Compensation per passenger |
+|---|---|
+| ✈️ Flights ≤ 1,500 km | **€250** |
+| 🇪🇺 Intra-EU flights > 1,500 km | **€400** |
+| 🌍 Non-EU flights 1,500 – 3,500 km | **€400** |
+| 🌐 All other flights (intercontinental, > 3,500 km) | **€600** |
 
-## What this does
+Plus **Art. 9 care costs** — hotel, meals, transport — owed regardless of cause. Even if the airline claims extraordinary circumstances. Even if they say the weather made it unavoidable. You are still owed care.
 
-Airlines reject valid EC 261/2004 claims more often than they should — usually by misapplying the law. This repo gives Claude Code enough legal precision to:
-
-1. **Analyze a rejection letter** and identify whether the airline's legal argument is correct or wrong
-2. **Draft claim letters** with the right article citations (Art. 5 cancellation vs Art. 6 delay, Art. 7 compensation amounts, Art. 9 care costs)
-3. **File with enforcement authorities** — AESA (Spain, binding ADR), ECC-Net Germany, or your national body
-4. **Counter bad arguments** — the six most common airline rejections and how to defeat each one
+> **Applies to:** any flight departing an EU airport (any airline), OR arriving at an EU airport on an EU carrier.
 
 ---
 
-## Quick start
+## See it in action
+
+<p align="center">
+  <img src="assets/demo.svg" alt="openbird /analyze-rejection demo" width="100%"/>
+</p>
+
+*Real analysis of a real rejection tactic. The airline claimed "you arrived earlier, so no compensation." That argument is only valid for delay claims (Art. 6). The flight was cancelled. Art. 5 applies. The passenger was owed €600.*
+
+---
+
+## Quick start (30 seconds)
 
 ```bash
-# Option 1: npx (no install)
 npx @buildingopen/openbird install
-cd your-project && claude
-
-# Option 2: Clone directly
-git clone https://github.com/buildingopen/openbird
-cd openbird && claude
 ```
 
-Then use the slash commands in Claude Code:
+That's it. Skills are copied into `.claude/skills/`. Open Claude Code in any project directory and the commands are live.
 
-| Command | What it does |
-|---|---|
-| `/analyze-rejection` | Paste in a rejection letter; Claude identifies if the airline is legally wrong and why |
-| `/file-claim` | Guides you through drafting an EC 261/2004 claim with correct article citations |
-| `/escalate` | Helps you file with AESA (binding), ECC-Net Germany, or other enforcement bodies |
+```bash
+# Or with pip
+pip install openbird && openbird install
+
+# Or clone directly
+git clone https://github.com/buildingopen/openbird && cd openbird && claude
+```
+
+Then in Claude Code:
+
+```
+/analyze-rejection
+/file-claim
+/escalate
+```
 
 ---
 
 ## Skills
 
-### `/analyze-rejection` — EC 261 airline rejection analyzer
-
-Paste in an airline rejection letter. Claude will:
-- Classify the disruption (cancellation under Art. 5 vs. delay under Art. 6 — this distinction is usually the entire case)
-- Evaluate each airline argument against the regulation text
-- Give a clear VALID / INVALID / PARTIALLY VALID verdict
-- Recommend next steps with specific article citations
-
-Common airline rejections this skill defeats:
-- "You arrived earlier, so no compensation" (only valid for Art. 6 delays, not Art. 5 cancellations)
-- "Extraordinary circumstances" invoked to deny Art. 9 care costs (never valid for care)
-- "File with the operating carrier" (Art. 13 puts liability on the marketing carrier)
-
-### `/file-claim` — EC 261/2004 claim letter drafter
-
-Guides you through building a formal claim letter that:
-- Cites the correct articles
-- Calculates the right compensation amount (€250/€400/€600 based on route distance)
-- Itemizes Art. 9 care costs separately from Art. 7 statutory compensation
-- Sets a 14-day deadline and names the authority you'll escalate to
-
-### `/escalate` — AESA / ECC-Net complaint assistant
-
-Determines the right enforcement authority and prepares the filing:
-- **AESA** (Spain) for Spanish carriers (LEVEL, Vueling, Iberia, Air Europa) — binding ADR02 procedure
-- **ECC-Net Germany** for Germany-based claimants — free cross-border mediation
-- Parallel filing strategy to maximize pressure on the airline
+| Command | What it does | When to use |
+|---|---|---|
+| `/analyze-rejection` | Paste your rejection letter. Claude identifies every legal error, gives a VALID/INVALID verdict, and cites the exact articles the airline got wrong. | You have a rejection and want to know if you have a case. |
+| `/file-claim` | Drafts a formal claim letter with correct article citations, calculated compensation amounts, and a 14-day ultimatum. | First contact or following up after a rejection. |
+| `/escalate` | Identifies the right enforcement authority (AESA, ECC-Net, LBA, CAA) and prepares your complaint filing. | The airline has ignored you or rejected you twice. |
 
 ---
 
-## What you can claim
+## Real case
 
-Under **EC Regulation 261/2004** (cancellations and significant delays):
+**The flight:** Berlin BER → Barcelona BCN → San Francisco SFO. Marketed by LEVEL, first leg operated by Vueling.
 
-| Route | Compensation per passenger |
+**What happened:** BER→BCN leg cancelled. Placed on a rerouted flight from a *different airport*, departing **8.5 hours before** the original.
+
+**The rejection:** *"You arrived at your final destination earlier than scheduled. No compensation is owed."*
+
+**Why that's legally wrong:** That argument applies to delay claims under Art. 6. The original flight was cancelled — Art. 5 applies. Under Art. 5(1)(c)(iii), the compensation exemption requires the new departure to be no more than 1 hour before the original. 8.5 hours fails the test entirely. The airline also tried to redirect to Vueling — also wrong, because Art. 13 puts full liability on the marketing carrier (LEVEL).
+
+**The outcome:** Formal counter-letter sent. AESA ADR02 filed. ECC-Net Germany filed in parallel. Airline paid.
+
+**Amount:** €600 statutory compensation + documented care costs (hotel, meal, missed non-refundable accommodation).
+
+---
+
+## How it works
+
+```
+1. Paste rejection letter      →    2. Run /analyze-rejection    →    3. Get counter-argument
+   (any airline, any language)           (Claude identifies                + filing instructions
+                                          the legal error)                  + authority + template
+```
+
+openbird works because airlines make the same six mistakes in rejection letters, over and over. The regulation text is precise. When the airline's argument doesn't match the text, you win — if you know which text to cite.
+
+---
+
+## Authorities covered
+
+| Authority | Country / Scope | Binding? | Best for |
+|---|---|---|---|
+| **AESA** | Spain + all Spanish carriers (Vueling, Iberia, LEVEL, Air Europa) | ✅ Yes — ADR02 | Spanish carriers regardless of departure |
+| **ECC-Net Germany** | Germany-based claimants, any EU airline | Mediation | Cross-border cases, parallel pressure |
+| **LBA** | German-registered carriers | ✅ Yes | Lufthansa, Condor, Eurowings |
+| **CAA** | UK (post-Brexit UK261) | ✅ Yes | Flights to/from UK |
+| **DGAC** | France | ✅ Yes | Air France, French departures |
+| **ENAC** | Italy | ✅ Yes | Italian carriers, Italian departures |
+| **ILT** | Netherlands | ✅ Yes | KLM, Amsterdam departures |
+
+---
+
+## Common airline rejection tactics — and why they fail
+
+Airlines have a playbook. Here are the six moves they use and the article that defeats each one:
+
+| What the airline says | Why it fails |
 |---|---|
-| Flights ≤1,500 km | €250 |
-| Intra-EU flights >1,500 km | €400 |
-| Non-EU flights 1,500–3,500 km | €400 |
-| All other flights (intercontinental, >3,500 km) | **€600** |
-
-Plus **Art. 9 care costs** (hotel, meals, transport) owed regardless of the cause of disruption — including when the airline claims extraordinary circumstances.
-
----
-
-## The case this was built from
-
-Real case:
-
-- **Route**: Berlin BER → Barcelona BCN → San Francisco SFO (marketed by LEVEL, operated by Vueling on first leg)
-- **Disruption**: First leg cancelled/rerouted, placed on a flight from a different airport departing 8.5 hours earlier
-- **Airline's rejection**: "You arrived earlier, so no compensation"
-- **Why that's wrong**: The "earlier arrival" exemption (Art. 5(1)(c)(iii)) only defeats **Art. 6 delay** claims. It does not defeat an **Art. 5 cancellation** claim. A rerouting that departs from a different airport 8.5 hours before the original flight is not a minor change — it is a cancellation and rebooking.
-- **Amount claimed**: €600 statutory compensation + documented care costs (hotel, meal, non-refundable accommodation)
-- **Filed with**: AESA (Spain, binding ADR), ECC-Net Germany
+| "You arrived earlier, so no compensation" | Art. 6 logic. If the original flight didn't operate, it's Art. 5. Arrival time is irrelevant. |
+| "Extraordinary circumstances" | Defeats Art. 7 only. Art. 9 care (hotel, meals) is owed in all cases. |
+| "File with the operating carrier" | Art. 13. Marketing carrier bears full liability. Their internal arrangements with the operator are not your problem. |
+| "You accepted the rebooking" | Accepting the only available flight does not waive your right to compensation. |
+| "You didn't request assistance at the airport" | Art. 9 creates a right. The airline must offer it. You can reclaim documented costs retrospectively. |
+| "The new flight departed less than 1h early" | Check the actual times. Airlines frequently misstate the departure window. |
 
 ---
 
@@ -123,66 +147,44 @@ Real case:
 
 ```
 openbird/
-├── README.md                   # This file
-├── CLAUDE.md                   # Legal context for Claude Code
-├── LICENSE                     # MIT
-├── package.json                # npm package
-├── pyproject.toml              # PyPI package
-├── index.js                    # Node.js module
-├── bin/
-│   └── openbird.js             # CLI entry point
-├── openbird/
-│   ├── __init__.py             # Python package
-│   └── cli.py                  # Python CLI
+├── CLAUDE.md                    # Legal context loaded into every Claude session
 ├── skills/
-│   ├── analyze-rejection.md    # /analyze-rejection skill
-│   ├── file-claim.md           # /file-claim skill
-│   └── escalate.md             # /escalate skill
+│   ├── analyze-rejection.md     # /analyze-rejection skill
+│   ├── file-claim.md            # /file-claim skill
+│   └── escalate.md              # /escalate skill
 ├── guides/
-│   ├── your-rights.md          # What EC 261/2004 actually says
-│   ├── aesa.md                 # How to file with Spain's AESA
-│   ├── eccnet.md               # How to file with ECC-Net Germany
-│   └── counter-arguments.md    # Common airline rejections and how to defeat them
+│   ├── your-rights.md           # What EC 261/2004 actually says
+│   ├── aesa.md                  # How to file with Spain's AESA
+│   ├── eccnet.md                # How to file with ECC-Net Germany
+│   └── counter-arguments.md     # The six rejection tactics and how to defeat each
 └── templates/
-    ├── initial-claim.md        # First letter to the airline
-    ├── escalation-notice.md    # Final notice before regulatory escalation
-    └── aesa-complaint.md       # AESA ADR02 complaint text
+    ├── initial-claim.md         # First letter to the airline
+    ├── escalation-notice.md     # Final notice before regulatory escalation
+    └── aesa-complaint.md        # AESA ADR02 complaint text
 ```
-
----
-
-## Install as npm or PyPI package
-
-### npm
-
-```bash
-# Use without installing
-npx @buildingopen/openbird install
-
-# Or install globally
-npm install -g @buildingopen/openbird
-openbird install
-```
-
-### PyPI
-
-```bash
-pip install openbird
-openbird install
-```
-
-Both `install` commands copy the skills to `.claude/skills/` in your current directory so Claude Code picks them up automatically.
-
----
-
-## Disclaimer
-
-This is not legal advice. It is practical information about a regulation that applies across the EU. The legal positions described here are drawn from the text of EC 261/2004 and from a real case — not from a lawyer. If your claim is complex or large, consult a solicitor or use a no-win-no-fee claims service.
-
-That said: airlines routinely reject valid claims hoping passengers won't push back. The information here is accurate enough to push back effectively.
 
 ---
 
 ## Contributing
 
-If you've won an EC 261/2004 case with an argument or authority not covered here, open a PR. Real, won cases are the most valuable content.
+If you've won an EC 261/2004 case with an argument, authority, or carrier situation not covered here — open a PR. Real won cases are the most valuable content in this repo. Include: what the airline argued, what article defeated it, which authority you filed with, and the outcome.
+
+---
+
+## Disclaimer
+
+This is practical information about a regulation that has binding legal force across the EU. It is not legal advice. The legal positions described here are drawn from the text of EC 261/2004 and from a real case — not from a lawyer. For complex or high-value claims, consult a solicitor or a no-win-no-fee claims service.
+
+That said: airlines routinely reject valid claims because most passengers won't push back. The information here is accurate enough to push back effectively.
+
+---
+
+## License
+
+MIT — free to use, fork, and extend.
+
+---
+
+<p align="center">
+  <sub>Built from a real case. Maintained by <a href="https://github.com/buildingopen">buildingopen</a>.</sub>
+</p>
